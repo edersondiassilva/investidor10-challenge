@@ -9,11 +9,11 @@ class CategoryFactory extends Factory
 {
     public function definition(): array
     {
-        $name = $this->faker->unique()->word();
+        $name = 'Categoria ' . Str::upper(Str::random(6));
 
         return [
-            'name' => ucfirst($name),
-            'slug' => Str::slug($name),
+            'name' => $name,
+            'slug' => Str::slug($name . '-' . Str::random(4)),
         ];
     }
 }
