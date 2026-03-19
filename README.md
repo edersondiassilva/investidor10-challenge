@@ -1,61 +1,80 @@
 # Investidor10 Challenge
 
-Sistema de cadastro de notícias desenvolvido em Laravel.
+Projeto desenvolvido em Laravel como solução para o teste técnico.
 
-## Tecnologias
+A aplicação permite o gerenciamento de categorias e notícias, com busca,
+filtro e paginação, seguindo boas práticas de organização e deploy.
 
-- Laravel 13
+---
+
+## Tecnologias utilizadas
+
 - PHP 8.3
-- MySQL 8
+- Laravel 11
+- SQLite
 - Docker
-- Nginx
 - Bootstrap 5
+- Render (deploy)
+
+---
 
 ## Funcionalidades
 
-- Cadastro de categorias
-- Cadastro de notícias
-- Edição e exclusão
-- Filtro por título
+- CRUD de categorias
+- CRUD de notícias
+- Busca por título
 - Filtro por categoria
 - Paginação
-- Seed com dados fake
+- Seeders com dados fake
+- Deploy online
+- Configuração via Docker
 
-## Como rodar
+---
 
-Clone:
-
-git clone <repo>
-
-Entrar:
-
-cd investidor10-challenge
-
-Subir containers:
+## Rodando com Docker
 
 docker compose up -d --build
 
-Rodar migrations:
-
-docker compose exec app php artisan migrate --seed
-
 Acessar:
+http://localhost:8000
 
-http://localhost:8080
+---
+
+## Banco de dados
+
+SQLite usado para facilitar execução local e cloud.
+
+Rodar:
+
+php artisan migrate --seed
+
+---
+
+## Deploy
+
+https://investidor10-challenge.onrender.com
+
+---
 
 ## Estrutura
 
-src → Laravel  
-docker → configs  
-docker-compose.yml → containers
+- Factories
+- Seeders
+- Pagination Bootstrap
+- HTTPS production
+- Docker
+- Render deploy
 
-## Banco
+---
 
-host: db  
-database: investidor10  
-user: laravel  
-password: root
+## Execução sem Docker
 
-## Observações
+cd src
+composer install
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
 
-Projeto feito para teste técnico.
+---
+
+Autor: Ederson Dias Silva
